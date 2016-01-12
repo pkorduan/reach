@@ -71,19 +71,20 @@
       <input type="text" id="coords" name="coords" list="coordsName"/>
       Format: <i>lat,lon</i>
       <datalist id="coordsName">
-        <option value="53.6,11.4">53.6,11.4</option>
+        <option value="<?php echo CENTER_DEFAULT; ?>"><?php echo CENTER_DEFAULT; ?></option>
       </datalist>
 
       <h4>Minuten</h4>
       <input type="text" id="minutes" name="minutes" list="minutesName"/>
       <datalist id="minutesName">
         <option value="10">10</option>
-        <option value="15">15</option>
+        <option value="15" selected>15</option>
       </datalist>
 
       <h4>Intervall in Minuten</h4>
       <input type="text" id="intervall" name="intervall" list="intervallName"/>
       <datalist id="intervallName">
+        <option value="1" selected>1</option>
         <option value="3">3</option>
         <option value="5">5</option>
       </datalist>
@@ -92,7 +93,7 @@
       <input type="text" id="target" name="target" list="target"/>
       <datalist id="targetName">
         <option value="0.9">0.9</option>
-        <option value="0.7">0.7</option>
+        <option value="0.7" selected>0.7</option>
         <option value="0.5">0.5</option>
       </datalist>
 

@@ -5,8 +5,9 @@
   * @return string   - json OR JSONP, i.e. javascript
   */
   //See http://stackoverflow.com/questions/1678214/javascript-how-do-i-create-jsonp
+  include( dirname(__FILE__) . "/conf/reach_conf.php");
   include( dirname(__FILE__) . "/conf/database_conf.php");
-  
+
   function geojson2multipoint($json) {
     return 'MultiPoint(' . implode(
       array_map(
@@ -59,7 +60,7 @@
     //1. get hull (?) of points for given coords and give timespan
     //Btw. cloud points is "cmd=fx"
     $osm2poreq = urldecode(
-      "http://localhost:8888/Osm2poService?cmd=" . $hull . "&source=" . $coords . "&findShortestPath=false&maxCost=" . $hours . "&format=geojson"
+      SHORTESTPATH_SERVICE + "?cmd=" . $hull . "&source=" . $coords . "&findShortestPath=false&maxCost=" . $hours . "&format=geojson"
     );
     #echo '<br>' . $osm2poreq;
     $response = file_get_contents($osm2poreq);
