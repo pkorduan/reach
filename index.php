@@ -52,7 +52,9 @@
         </script>
     <title>Pflegeportal LUP Erreichbarkeitsanalyse</title>
   </head>
-    <body>
+    <body><?php
+        include( dirname(__FILE__) . "/conf/reach_conf.php");
+      ?>
     <div class="container">
       <h4>Schemaauswahl</h4><?php
       include( dirname(__FILE__) . "/conf/database_conf.php");
@@ -68,32 +70,33 @@
       <?php #print_r($result); ?>
 
       <h4>Koordinaten</h4>
-      <input type="text" id="coords" name="coords" list="coordsName"/>
+      <input type="text" id="coords" name="coords" list="coordsName" value="<?php echo CENTER_DEFAULT; ?>"/>
       Format: <i>lat,lon</i>
       <datalist id="coordsName">
         <option value="<?php echo CENTER_DEFAULT; ?>"><?php echo CENTER_DEFAULT; ?></option>
       </datalist>
 
       <h4>Minuten</h4>
-      <input type="text" id="minutes" name="minutes" list="minutesName"/>
+      <input type="text" id="minutes" name="minutes" list="minutesName" value="<?php echo MINUTES_DEFAULT; ?>"/>
       <datalist id="minutesName">
+        <option value="10">5</option>
         <option value="10">10</option>
-        <option value="15" selected>15</option>
+        <option value="15">15</option>
       </datalist>
 
       <h4>Intervall in Minuten</h4>
-      <input type="text" id="intervall" name="intervall" list="intervallName"/>
+      <input type="text" id="intervall" name="intervall" list="intervallName" value="<?php echo INTERVALL_DEFAULT; ?>"/>
       <datalist id="intervallName">
-        <option value="1" selected>1</option>
+        <option value="1">1</option>
         <option value="3">3</option>
         <option value="5">5</option>
       </datalist>
 
       <h4>Target (%, z.B. "0.7") f&uuml;r ST_ConcaveHull</h4>
-      <input type="text" id="target" name="target" list="target"/>
+      <input type="text" id="target" name="target" list="target" value="<?php echo TARGET_DEFAULT; ?>"/>
       <datalist id="targetName">
         <option value="0.9">0.9</option>
-        <option value="0.7" selected>0.7</option>
+        <option value="0.7">0.7</option>
         <option value="0.5">0.5</option>
       </datalist>
 
