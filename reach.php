@@ -60,10 +60,11 @@
     //1. get hull (?) of points for given coords and give timespan
     //Btw. cloud points is "cmd=fx"
     $osm2poreq = urldecode(
-      SHORTESTPATH_SERVICE + "?cmd=" . $hull . "&source=" . $coords . "&findShortestPath=false&maxCost=" . $hours . "&format=geojson"
+      SHORTESTPATH_SERVICE . "?cmd=" . $hull . "&source=" . $coords . "&findShortestPath=false&maxCost=" . $hours . "&format=geojson"
     );
-    #echo '<br>' . $osm2poreq;
-    $response = file_get_contents($osm2poreq);
+    #echo '<br>' . SHORTESTPATH_SERVICE;
+
+    $response = @file_get_contents($osm2poreq);
     #echo '<br>Rückgabe: ' . $response;
 
     //2. temporarly insert points into PostGIS db
